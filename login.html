@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>نجم لخدمات التأمين | تسجيل الدخول</title>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/a11y.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/forms.css" />
+  <!-- Apply saved accessibility settings before first paint (keep in sync with js/a11y.js). -->
+  <script>
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem('najm-a11y') || '{}');
+        var root = document.documentElement;
+        var mq = function (q) { return window.matchMedia && window.matchMedia(q).matches; };
+        var theme = s.theme || 'system';
+        if (theme === 'dark' || (theme === 'system' && mq('(prefers-color-scheme: dark)'))) root.classList.add('dark');
+        if (s.contrast === true || (s.contrast === undefined && mq('(prefers-contrast: more)'))) root.classList.add('hc');
+        if (s.spacing) root.classList.add('text-spacing');
+        if (s.links) root.classList.add('hl-links');
+        if (s.motion === true || (s.motion === undefined && mq('(prefers-reduced-motion: reduce)'))) root.classList.add('reduce-motion');
+        if (s.cvd && s.cvd !== 'none') root.setAttribute('data-cvd', s.cvd);
+        if (s.textScale) root.style.setProperty('--ts', String(s.textScale));
+      } catch (e) {}
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { din: ['"DIN Next LT Arabic"', 'sans-serif'] },
+          colors: {
+            // --c-primary is the page green (#35835b) and the accessibility tool's green (#016643) inside .a11y-ui
+            primary: {
+              DEFAULT: 'rgb(var(--c-primary) / <alpha-value>)',
+              10: 'var(--color-primary-10)',
+              20: 'var(--color-primary-20)',
+              200: 'var(--color-primary-200)',
+            },
+            brand: '#33835c',
+            secondary: {
+              DEFAULT: '#555559',
+              10: 'var(--color-secondary-10)',
+              40: 'var(--color-secondary-40)',
+              100: 'var(--color-secondary-100)',
+              200: 'var(--color-secondary-200)',
+            },
+            ink: '#55565a',
+            // Accessibility-tool tokens (New Najm Design System, remapped by .dark / .hc)
+            canvas: 'var(--color-canvas)',
+            heading: 'var(--color-heading)',
+            surface: 'var(--color-surface)',
+            line: 'var(--color-line)',
+            warning: { 10: 'var(--color-warning-10)', 80: 'var(--color-warning-80)', 250: 'var(--color-warning-250)' },
+            error: { 10: 'var(--color-error-10)', 200: 'var(--color-error-200)' },
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="font-din text-black antialiased">
+  <a href="#main" class="skip-link">تخطي إلى المحتوى الرئيسي</a>
+
+  <div id="canvas" class="page-canvas relative overflow-hidden bg-white">
+
+    <!-- ============ Header / Main navigation ============ -->
+    <header class="r-header relative z-30 flex h-[100.69px] items-center justify-center gap-[22px] bg-[#f2f3f2] px-[85px]">
+      <!-- Logo -->
+      <a href="index.html" aria-label="نجم - الصفحة الرئيسية" class="r-logo self-start" dir="ltr">
+        <span class="inline-grid grid-cols-[max-content] grid-rows-[max-content] place-items-start leading-[0]">
+          <img src="assets/logo-bg.svg" alt="" class="col-start-1 row-start-1 h-[100.41px] w-[59px] max-w-none" />
+          <span class="col-start-1 row-start-1 ml-[6.04px] mt-[57.52px] inline-grid grid-cols-[max-content] grid-rows-[max-content] place-items-start">
+            <img src="assets/logo-ar.svg" alt="" class="col-start-1 row-start-1 ml-[0.01px] h-[22.644px] w-[48.294px] max-w-none" />
+            <img src="assets/logo-en.svg" alt="" class="col-start-1 row-start-1 mt-[24.53px] h-[18.645px] w-[48.209px] max-w-none" />
+          </span>
+        </span>
+      </a>
+
+      <!-- Menu toggle (tablet & mobile) -->
+      <button type="button" class="r-menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="فتح القائمة" data-menu-toggle><svg aria-hidden="true" viewBox="0 0 24 24" class="r-icon-open" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg><svg aria-hidden="true" viewBox="0 0 24 24" class="r-icon-close" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18" /></svg></button>
+
+      <div id="site-menu" class="r-menu flex w-[1707px] shrink-0 items-center justify-between">
+        <!-- Primary nav -->
+        <nav aria-label="القائمة الرئيسية">
+          <ul class="r-nav-list flex items-center gap-[32px]">
+            <li>
+              <a href="#" class="flex min-w-[74px] items-center justify-end gap-[8px] whitespace-nowrap text-[length:calc(18px*var(--ts))] font-medium leading-[calc(24px*var(--ts))] text-black hover:text-primary">
+                <span>عن نجم</span>
+                <span class="relative h-[5.323px] w-[11.88px] shrink-0" aria-hidden="true">
+                  <span class="absolute inset-[-14.09%_-6.31%]"><img src="assets/ic-chevron-down.svg" alt="" class="block size-full max-w-none" /></span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-[8px] text-[length:calc(18px*var(--ts))] font-medium leading-[calc(24px*var(--ts))] text-black hover:text-primary">
+                <span>الخدمات الالكترونية</span>
+                <span class="relative h-[5.323px] w-[11.88px] shrink-0" aria-hidden="true">
+                  <span class="absolute inset-[-14.09%_-6.31%]"><img src="assets/ic-chevron-down.svg" alt="" class="block size-full max-w-none" /></span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-[8px] text-[length:calc(18px*var(--ts))] font-medium leading-[calc(24px*var(--ts))] text-black hover:text-primary">
+                <span>الدعم و المساعدة</span>
+                <span class="relative h-[5.323px] w-[11.88px] shrink-0" aria-hidden="true">
+                  <span class="absolute inset-[-14.09%_-6.31%]"><img src="assets/ic-chevron-down.svg" alt="" class="block size-full max-w-none" /></span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Utilities -->
+        <div class="r-utils flex items-center gap-[24px]">
+          <!-- Language + search (original LTR composition) -->
+          <div dir="ltr" class="inline-grid grid-cols-[max-content] grid-rows-[max-content] place-items-start leading-[0]">
+            <a href="#" lang="en" aria-label="English" class="col-start-1 row-start-1 ml-[49px] mt-0 inline-grid grid-cols-[max-content] grid-rows-[max-content] place-items-start">
+              <span class="col-start-1 row-start-1 ml-[24px] mt-0 h-[32px] w-[25px] text-[length:calc(20px*var(--ts))] font-medium leading-normal text-black">EN</span>
+              <img src="assets/ic-globe.svg" alt="" class="col-start-1 row-start-1 ml-0 mt-[7.72px] h-[20.966px] w-[19px] max-w-none" />
+            </a>
+            <button type="button" aria-label="بحث" class="col-start-1 row-start-1 ml-0 mt-[4.41px] size-[24px]">
+              <img src="assets/ic-search.svg" alt="" class="block size-full max-w-none" />
+            </button>
+          </div>
+
+          <!-- Accessibility settings -->
+          <button type="button" aria-haspopup="dialog" data-a11y-open class="flex shrink-0 items-center gap-[8px] whitespace-nowrap text-[length:calc(18px*var(--ts))] font-medium leading-[calc(24px*var(--ts))] text-black hover:text-primary">
+            <img src="assets/ic-eye.svg" alt="" class="block size-[24px] shrink-0" />
+            <span>إمكانية الوصول</span>
+          </button>
+
+          <!-- Login -->
+          <a href="login.html" aria-current="page" class="flex min-w-[183px] shrink-0 items-center justify-center gap-[10px] rounded-[12px] bg-primary px-[16px] py-[18px] backdrop-blur-[40px] transition-colors hover:bg-[#2c6f4c]">
+            <img src="assets/ic-login.svg" alt="" class="size-[24px] shrink-0" />
+            <span class="trim whitespace-nowrap text-center text-[length:calc(20px*var(--ts))] font-bold leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-white" style="font-feature-settings: 'case' 1">تسجيل الدخول</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1" class="outline-none pb-[134px] pt-[107px]">
+      <!-- Figma "News Details 1962" — login card (Rectangle 12024973, 1320 × 608) -->
+      <section aria-labelledby="login-title"
+               class="r-auth-card r-login mx-auto flex min-h-[608px] w-[1320px] items-start justify-between rounded-[44px] bg-[rgba(255,255,255,0.6)] px-[112px] py-[101px] shadow-[0px_0px_15px_0px_rgba(0,0,0,0.19)]">
+
+        <!-- Form (Frame 2843728) -->
+        <form id="login-form" novalidate class="r-full mt-[3px] flex w-[423px] flex-col items-start gap-[48px]">
+          <div class="flex w-full flex-col items-start gap-[48px]">
+            <h1 id="login-title" class="r-title trim w-full text-right text-[length:calc(48px*var(--ts))] font-bold leading-normal text-brand">تسجيل الدخول</h1>
+
+            <div class="flex w-full flex-col items-start gap-[32px]">
+              <!-- National ID / Iqama -->
+              <div class="flex w-full flex-col items-start gap-[12px]" data-field>
+                <label for="login-id" class="trim w-full text-right text-[length:calc(16px*var(--ts))] font-medium leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-secondary">رقم الهوية \ الإقامة</label>
+                <div class="form-box relative flex h-[56px] w-full items-center rounded-[12px] border border-solid border-[#9ea0a0] bg-white px-[10px]">
+                  <input id="login-id" name="nationalId" type="text" inputmode="numeric" autocomplete="username" maxlength="10" required
+                         placeholder="أدخل رقم الهوية \ الإقامة" aria-describedby="login-id-error"
+                         class="form-input h-full w-full min-w-0 bg-transparent text-right text-[length:calc(16px*var(--ts))] text-secondary outline-none" />
+                </div>
+                <p id="login-id-error" class="field-error" hidden></p>
+              </div>
+
+              <!-- Password -->
+              <div class="r-full flex w-[421px] flex-col items-start gap-[12px]" data-field>
+                <label for="login-password" class="trim w-full text-right text-[length:calc(16px*var(--ts))] font-medium leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-secondary">كلمة المرور</label>
+                <div class="form-box relative flex h-[56px] w-full items-center rounded-[12px] border border-solid border-[#9ea0a0] bg-white pl-[48px] pr-[10px]">
+                  <input id="login-password" name="password" type="password" autocomplete="current-password" required
+                         placeholder="أدخل كلمة المرور" aria-describedby="login-password-error"
+                         class="form-input h-full w-full min-w-0 bg-transparent text-right text-[length:calc(16px*var(--ts))] text-secondary outline-none" />
+                  <button type="button" class="absolute left-[14px] top-1/2 size-[24px] -translate-y-1/2" data-toggle-password="login-password" aria-label="إظهار كلمة المرور" aria-pressed="false">
+                    <img src="assets/ic-eye-pw.svg" alt="" class="block size-full max-w-none" />
+                  </button>
+                </div>
+                <p id="login-password-error" class="field-error" hidden></p>
+                <a href="#" class="trim self-end text-[length:calc(16px*var(--ts))] font-normal leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-[rgba(85,85,89,0.6)] hover:text-primary hover:underline" style="font-feature-settings: 'case' 1">نسيت كلمة المرور</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions (Frame 2843727) -->
+          <div class="r-auth-actions flex w-full items-center gap-[24px]">
+            <button type="submit" class="r-auth-btn flex w-[199px] items-center justify-center gap-[10px] rounded-[12px] bg-primary px-[16px] py-[18px] backdrop-blur-[40px] transition-colors hover:bg-[#2c6f4c]">
+              <span class="trim whitespace-nowrap text-center text-[length:calc(20px*var(--ts))] font-medium leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-white" style="font-feature-settings: 'case' 1">تسجيل الدخول</span>
+              <img src="assets/ic-arrow-square-left-white3.svg" alt="" class="size-[24px] shrink-0" />
+            </button>
+            <a href="register.html" class="r-auth-btn flex w-[199px] items-center justify-center gap-[10px] rounded-[12px] border-2 border-solid border-secondary px-[16px] py-[16px] backdrop-blur-[40px] transition-colors hover:bg-[rgba(85,85,89,0.06)]">
+              <span class="trim whitespace-nowrap text-center text-[length:calc(20px*var(--ts))] font-medium leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-secondary" style="font-feature-settings: 'case' 1">إنشاء حساب</span>
+              <img src="assets/ic-arrow-square-left-dark.svg" alt="" class="size-[24px] shrink-0" />
+            </a>
+          </div>
+
+          <p class="form-status" role="status" aria-live="polite" hidden></p>
+        </form>
+
+        <!-- Illustration (Group 2843020) -->
+        <img src="assets/login-illustration.svg" alt="" aria-hidden="true" class="r-login-illu h-[406px] w-[543.114px] shrink-0 max-w-none" />
+      </section>
+    </main>
+
+    <!-- ============ Footer ============ -->
+    <footer class="r-footer relative z-10 flex w-[1920px] flex-col items-start">
+      <div class="r-footer-top relative flex w-full items-center gap-[32px] bg-secondary px-[300px] py-[104px]">
+        <!-- About -->
+        <div class="r-footer-about flex min-w-px flex-1 flex-col items-start justify-center gap-[16px]">
+          <div class="flex w-full flex-col items-start gap-[8px]">
+            <span dir="ltr" class="inline-grid grid-cols-[max-content] grid-rows-[max-content] place-items-start leading-[0]">
+              <img src="assets/footer-logo-ar.svg" alt="" class="col-start-1 row-start-1 ml-[0.01px] mt-0 h-[62.935px] w-[143.985px] max-w-none" />
+              <img src="assets/footer-logo-en.svg" alt="نجم najm" class="col-start-1 row-start-1 ml-0 mt-[68.18px] h-[51.822px] w-[143.73px] max-w-none" />
+            </span>
+            <p class="r-footer-about-text h-[112px] min-w-full text-right text-[length:calc(16px*var(--ts))] font-normal leading-[calc(24px*var(--ts))] text-white">شركة نجم لخدمات التأمين هي شركة مساهمة مقفلة غير مدرجة، تأسست عام 1428هـ (2007م)، نتيجة تعاون مشترك بين البنك المركزي السعودي (ساما) والإدارة العامة للمرور، بهدف تعزيز قطاع التأمين على المركبات في المملكة.</p>
+          </div>
+          <ul class="flex items-center gap-[13px]" aria-label="حسابات التواصل الاجتماعي">
+            <li>
+              <a href="#" aria-label="لينكدإن" class="relative block size-[32px] overflow-clip rounded-[8px] bg-[rgba(217,217,217,0.33)]">
+                <img src="assets/ic-linkedin.svg" alt="" class="absolute inset-1/4 block size-1/2 max-w-none" />
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="إكس (تويتر)" class="relative block size-[32px]">
+                <img src="assets/ic-x.svg" alt="" class="absolute inset-0 block size-full max-w-none" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Link columns -->
+        <nav aria-label="روابط التذييل" class="r-footer-nav flex w-[922px] items-start gap-[24px]">
+          <div class="r-footer-col flex min-w-px flex-1 flex-col items-start gap-[16px]">
+            <div class="flex w-full flex-col items-start justify-center gap-[16px]">
+              <h2 class="whitespace-nowrap text-right text-[length:calc(20px*var(--ts))] font-bold leading-[calc(24px*var(--ts))] text-white">عن نجم</h2>
+              <span class="relative h-0 w-[50px]" aria-hidden="true"><span class="absolute inset-[-1.5px_-3%]"><img src="assets/footer-underline.svg" alt="" class="block size-full max-w-none" /></span></span>
+            </div>
+            <ul class="flex w-full flex-col items-start gap-[24px] text-right text-[length:calc(16px*var(--ts))] font-normal leading-[calc(24px*var(--ts))] text-white">
+              <li class="w-full"><a href="#" class="hover:underline">من نحن</a></li>
+              <li class="w-full"><a href="#" class="hover:underline">الرؤية و الرسالة</a></li>
+              <li class="w-full"><a href="#" class="hover:underline">أعضاء مجلس الإدارة</a></li>
+              <li class="w-full"><a href="#" class="hover:underline">الإدارة التنفيذية</a></li>
+              <li class="w-full"><a href="#" class="hover:underline">التوظيف</a></li>
+              <li class="w-full"><a href="#" class="hover:underline">شركاؤنا</a></li>
+            </ul>
+          </div>
+          <div class="r-footer-col flex min-w-px flex-1 flex-col items-start gap-[16px]">
+            <div class="flex w-full flex-col items-start justify-center gap-[16px]">
+              <h2 class="whitespace-nowrap text-right text-[length:calc(20px*var(--ts))] font-bold leading-[calc(24px*var(--ts))] text-white">ارشادات و نصائح</h2>
+              <span class="relative h-0 w-[50px]" aria-hidden="true"><span class="absolute inset-[-1.5px_-3%]"><img src="assets/footer-underline.svg" alt="" class="block size-full max-w-none" /></span></span>
+            </div>
+            <ul class="flex w-full flex-col items-start gap-[24px] text-right text-[length:calc(16px*var(--ts))] font-normal leading-[calc(24px*var(--ts))] text-white">
+              <li class="w-full"><a href="#" class="hover:underline">إجراءات ما بعد الحوادث</a></li>
+              <li class="w-full"><a href="#" class="hover:underline">نصائح حول حوادث السيارات</a></li>
+              <li class="w-full"><a href="#" class="hover:underline">إجراءات الإبلاغ عن الحوادث</a></li>
+              <li class="w-full"><a href="#" class="hover:underline">الأسئلة الشائعة</a></li>
+            </ul>
+          </div>
+          <div class="r-footer-col flex min-w-px flex-1 flex-col items-start gap-[16px]">
+            <div class="flex w-full flex-col items-start justify-center gap-[16px]">
+              <h2 class="whitespace-nowrap text-right text-[length:calc(20px*var(--ts))] font-bold leading-[calc(24px*var(--ts))] text-white">روابط</h2>
+              <span class="relative h-0 w-[50px]" aria-hidden="true"><span class="absolute inset-[-1.5px_-3%]"><img src="assets/footer-underline.svg" alt="" class="block size-full max-w-none" /></span></span>
+            </div>
+            <ul class="flex w-full flex-col items-start gap-[24px] text-right text-[length:calc(16px*var(--ts))] font-normal leading-[calc(24px*var(--ts))] text-white">
+              <li class="w-full"><a href="#" class="hover:underline">أحداث نجم</a></li>
+              <li class="w-full"><a href="#" class="hover:underline">مبادئ حماية عملاء شركة التأمين</a></li>
+              <li class="w-full"><a href="#" class="hover:underline">اللوائح و الأنظمة</a></li>
+            </ul>
+          </div>
+          <div class="r-footer-col flex min-w-px flex-1 flex-col items-start gap-[16px]">
+            <div class="flex w-full flex-col items-start justify-center gap-[16px]">
+              <h2 class="whitespace-nowrap text-right text-[length:calc(20px*var(--ts))] font-bold leading-[calc(24px*var(--ts))] text-white">شركة نجم لخدمات التأمين</h2>
+              <span class="relative h-0 w-[50px]" aria-hidden="true"><span class="absolute inset-[-1.5px_-3%]"><img src="assets/footer-underline.svg" alt="" class="block size-full max-w-none" /></span></span>
+            </div>
+            <address class="flex w-full flex-col items-start gap-[24px] text-right text-[length:calc(16px*var(--ts))] font-normal not-italic leading-[calc(24px*var(--ts))] text-white">
+              <p class="w-full">شركة مساهمة مغلقة</p>
+              <p class="w-full">سجل تجاري : 1010229751</p>
+              <p class="w-full"> رقم الترخيص : 177788</p>
+              <p class="w-full">الشركة خاضعة لرقابة وإشراف البنك المركزي السعودي</p>
+              <p class="w-full">طريق الثمامة، الصحافة، 3244، الرياض 13315</p>
+            </address>
+          </div>
+        </nav>
+
+        <!-- Back to top -->
+        <button id="back-to-top" type="button" aria-label="العودة إلى أعلى الصفحة"
+                class="r-back-top absolute left-[300px] top-[-47px] size-[72px] overflow-clip rounded-[12px] bg-gradient-to-b from-[#e6c068] to-[#cca447] transition-transform hover:-translate-y-1">
+          <span class="absolute left-1/2 top-1/2 flex h-[32px] w-[26px] -translate-x-1/2 -translate-y-1/2 items-center justify-center">
+            <span class="relative h-[26px] w-[32px] flex-none -rotate-90 overflow-clip">
+              <img src="assets/ic-arrow-up.svg" alt="" class="absolute inset-[0.02%_0_-0.02%_0] block size-full max-w-none" />
+            </span>
+          </span>
+        </button>
+      </div>
+
+      <div class="r-footer-bottom flex w-full items-center justify-between whitespace-nowrap bg-brand px-[300px] py-[40px] text-right text-[length:calc(18px*var(--ts))] font-normal leading-[calc(24px*var(--ts))] text-white">
+        <p>جميع الحقوق محفوظة لشركة نجم لخدمات التأمين 2024</p>
+        <a href="#" class="hover:underline">سياسة الخصوصية وشروط الاستخدام</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Colour-vision correction filters (daltonization), referenced from css/styles.css -->
+  <svg aria-hidden="true" focusable="false" width="0" height="0" style="position: absolute">
+    <filter id="cvd-protanopia" color-interpolation-filters="linearRGB">
+      <feColorMatrix type="matrix" values="1 0 0 0 0  -0.255 1.255 0 0 0  0.303 -0.545 1.242 0 0  0 0 0 1 0" />
+    </filter>
+    <filter id="cvd-deuteranopia" color-interpolation-filters="linearRGB">
+      <feColorMatrix type="matrix" values="1 0 0 0 0  -0.438 1.438 0 0 0  0.262 -0.563 1.3 0 0  0 0 0 1 0" />
+    </filter>
+    <filter id="cvd-tritanopia" color-interpolation-filters="linearRGB">
+      <feColorMatrix type="matrix" values="1.05 -0.382 0.332 0 0  0 1.234 -0.234 0 0  0 0 1 0 0  0 0 0 1 0" />
+    </filter>
+  </svg>
+
+  <script src="js/a11y.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/forms.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "DIN Next LT Arabic";
+  src: url("../fonts/DINNextLTArabic-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DIN Next LT Arabic";
+  src: url("../fonts/DINNextLTArabic-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DIN Next LT Arabic";
+  src: url("../fonts/DINNextLTArabic-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DIN Next LT Arabic";
+  src: url("../fonts/DINNextLTArabic-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  margin: 0;
+  background: #f2f2f2;
+}
+
+/* Only on body (not html), so the dialogs' body scroll-lock propagates to the viewport. */
+body {
+  overflow-x: hidden;
+}
+
+/* The design is a 1920px desktop frame; the canvas keeps every element at its exact
+   design coordinates and is scaled down (via zoom) on narrower viewports. */
+.page-canvas {
+  width: 1920px;
+  margin-inline: auto;
+}
+
+/* Trim text boxes to cap-height / baseline like Figma's "vertical trim". */
+.trim {
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+}
+
+/* Visible focus for keyboard users. */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 3px solid #e6c068;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100px;
+  inset-inline-start: 16px;
+  z-index: 100;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: #35835b;
+  color: #fff;
+  font-weight: 700;
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+.tab-active-icon {
+  filter: brightness(0) invert(1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.reduce-motion) {
+    scroll-behavior: smooth;
+  }
+}

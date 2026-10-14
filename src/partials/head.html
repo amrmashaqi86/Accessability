@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>نجم لخدمات التأمين | {{TITLE}}</title>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/a11y.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+{{EXTRA_CSS}}  <!-- Apply saved accessibility settings before first paint (keep in sync with js/a11y.js). -->
+  <script>
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem('najm-a11y') || '{}');
+        var root = document.documentElement;
+        var mq = function (q) { return window.matchMedia && window.matchMedia(q).matches; };
+        var theme = s.theme || 'system';
+        if (theme === 'dark' || (theme === 'system' && mq('(prefers-color-scheme: dark)'))) root.classList.add('dark');
+        if (s.contrast === true || (s.contrast === undefined && mq('(prefers-contrast: more)'))) root.classList.add('hc');
+        if (s.spacing) root.classList.add('text-spacing');
+        if (s.links) root.classList.add('hl-links');
+        if (s.motion === true || (s.motion === undefined && mq('(prefers-reduced-motion: reduce)'))) root.classList.add('reduce-motion');
+        if (s.cvd && s.cvd !== 'none') root.setAttribute('data-cvd', s.cvd);
+        if (s.textScale) root.style.setProperty('--ts', String(s.textScale));
+      } catch (e) {}
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { din: ['"DIN Next LT Arabic"', 'sans-serif'] },
+          colors: {
+            // --c-primary is the page green (#35835b) and the accessibility tool's green (#016643) inside .a11y-ui
+            primary: {
+              DEFAULT: 'rgb(var(--c-primary) / <alpha-value>)',
+              10: 'var(--color-primary-10)',
+              20: 'var(--color-primary-20)',
+              200: 'var(--color-primary-200)',
+            },
+            brand: '#33835c',
+            secondary: {
+              DEFAULT: '#555559',
+              10: 'var(--color-secondary-10)',
+              40: 'var(--color-secondary-40)',
+              100: 'var(--color-secondary-100)',
+              200: 'var(--color-secondary-200)',
+            },
+            ink: '#55565a',
+            // Accessibility-tool tokens (New Najm Design System, remapped by .dark / .hc)
+            canvas: 'var(--color-canvas)',
+            heading: 'var(--color-heading)',
+            surface: 'var(--color-surface)',
+            line: 'var(--color-line)',
+            warning: { 10: 'var(--color-warning-10)', 80: 'var(--color-warning-80)', 250: 'var(--color-warning-250)' },
+            error: { 10: 'var(--color-error-10)', 200: 'var(--color-error-200)' },
+          },
+        },
+      },
+    };
+  </script>
+</head>

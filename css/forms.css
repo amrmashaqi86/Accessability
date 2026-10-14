@@ -1,0 +1,94 @@
+/* Login / registration form controls (Figma "Web TB" text box, "CB" checkbox, "Show/Hide password"). */
+
+.form-input::placeholder {
+  color: rgba(85, 85, 89, 0.6);
+  font-size: calc(12px * var(--ts));
+  font-weight: 400;
+  letter-spacing: -0.408px;
+  opacity: 1;
+}
+
+/* The visible box carries the keyboard focus ring (the input itself has no outline). */
+.form-box:focus-within {
+  border-color: #35835b;
+  outline: 3px solid #e6c068;
+  outline-offset: 2px;
+}
+
+/* Invalid field */
+[data-field].is-invalid .form-box {
+  border-color: #c53232;
+}
+.field-error {
+  font-size: calc(13px * var(--ts));
+  line-height: calc(20px * var(--ts));
+  color: #c53232;
+  text-align: right;
+}
+
+/* Checkbox: Figma "CB" (unchecked) — filled green with a white tick when checked. */
+.form-check {
+  display: block;
+  background: url('../assets/cb-empty.svg') center / 100% 100% no-repeat;
+}
+input:checked + .form-check {
+  background-image: url('../assets/cb-checked.svg');
+}
+input:focus-visible + .form-check {
+  outline: 3px solid #e6c068;
+  outline-offset: 2px;
+  border-radius: 5px;
+}
+[data-field].is-invalid .form-check {
+  box-shadow: 0 0 0 2px #c53232;
+  border-radius: 5px;
+}
+
+/* Submit result */
+.form-status {
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: calc(15px * var(--ts));
+  line-height: calc(22px * var(--ts));
+  font-weight: 500;
+  background: #e6f2ec;
+  color: #1d5c3d;
+}
+
+/* ---- Dark theme / high contrast ---------------------------------------------- */
+html.dark #canvas .form-input::placeholder {
+  color: #8a9a94;
+}
+html.dark #canvas :is(.text-\[\#5b5b5b\], .text-\[rgba\(85\2c 85\2c 89\2c 0\.6\)\]) {
+  color: #d3dad7;
+}
+html.dark #canvas .bg-\[\#f8f8f8\] {
+  background-color: #19221f;
+}
+html.dark #canvas :is(.border-\[\#9ea0a0\], .border-\[\#dedede\], .border-secondary) {
+  border-color: #63736d;
+}
+html.dark #canvas img[src*='login-illustration'] {
+  filter: invert(1) hue-rotate(180deg);
+}
+html.dark .form-status {
+  background: #003827;
+  color: #c2ffe9;
+}
+html.dark .field-error {
+  color: #f5adad;
+}
+html.dark [data-field].is-invalid .form-box {
+  border-color: #f5adad;
+}
+html.hc #canvas .form-input::placeholder,
+html.hc #canvas :is(.text-\[\#5b5b5b\], .text-\[rgba\(85\2c 85\2c 89\2c 0\.6\)\]) {
+  color: #1f1f1f;
+}
+html.hc #canvas .border-\[\#9ea0a0\] {
+  border-color: #4d4d4d;
+}
+html.dark.hc #canvas .form-input::placeholder,
+html.dark.hc #canvas :is(.text-\[\#5b5b5b\], .text-\[rgba\(85\2c 85\2c 89\2c 0\.6\)\]) {
+  color: #f0f0f0;
+}

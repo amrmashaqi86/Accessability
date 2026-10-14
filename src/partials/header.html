@@ -1,0 +1,74 @@
+    <!-- ============ Header / Main navigation ============ -->
+    <header class="r-header relative z-30 flex h-[100.69px] items-center justify-center gap-[22px] bg-[#f2f3f2] px-[85px]">
+      <!-- Logo -->
+      <a href="index.html" aria-label="نجم - الصفحة الرئيسية" class="r-logo self-start" dir="ltr">
+        <span class="inline-grid grid-cols-[max-content] grid-rows-[max-content] place-items-start leading-[0]">
+          <img src="assets/logo-bg.svg" alt="" class="col-start-1 row-start-1 h-[100.41px] w-[59px] max-w-none" />
+          <span class="col-start-1 row-start-1 ml-[6.04px] mt-[57.52px] inline-grid grid-cols-[max-content] grid-rows-[max-content] place-items-start">
+            <img src="assets/logo-ar.svg" alt="" class="col-start-1 row-start-1 ml-[0.01px] h-[22.644px] w-[48.294px] max-w-none" />
+            <img src="assets/logo-en.svg" alt="" class="col-start-1 row-start-1 mt-[24.53px] h-[18.645px] w-[48.209px] max-w-none" />
+          </span>
+        </span>
+      </a>
+
+      <!-- Menu toggle (tablet & mobile) -->
+      <button type="button" class="r-menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="فتح القائمة" data-menu-toggle><svg aria-hidden="true" viewBox="0 0 24 24" class="r-icon-open" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg><svg aria-hidden="true" viewBox="0 0 24 24" class="r-icon-close" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18" /></svg></button>
+
+      <div id="site-menu" class="r-menu flex w-[1707px] shrink-0 items-center justify-between">
+        <!-- Primary nav -->
+        <nav aria-label="القائمة الرئيسية">
+          <ul class="r-nav-list flex items-center gap-[32px]">
+            <li>
+              <a href="#" class="flex min-w-[74px] items-center justify-end gap-[8px] whitespace-nowrap text-[length:calc(18px*var(--ts))] font-medium leading-[calc(24px*var(--ts))] text-black hover:text-primary">
+                <span>عن نجم</span>
+                <span class="relative h-[5.323px] w-[11.88px] shrink-0" aria-hidden="true">
+                  <span class="absolute inset-[-14.09%_-6.31%]"><img src="assets/ic-chevron-down.svg" alt="" class="block size-full max-w-none" /></span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-[8px] text-[length:calc(18px*var(--ts))] font-medium leading-[calc(24px*var(--ts))] text-black hover:text-primary">
+                <span>الخدمات الالكترونية</span>
+                <span class="relative h-[5.323px] w-[11.88px] shrink-0" aria-hidden="true">
+                  <span class="absolute inset-[-14.09%_-6.31%]"><img src="assets/ic-chevron-down.svg" alt="" class="block size-full max-w-none" /></span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-[8px] text-[length:calc(18px*var(--ts))] font-medium leading-[calc(24px*var(--ts))] text-black hover:text-primary">
+                <span>الدعم و المساعدة</span>
+                <span class="relative h-[5.323px] w-[11.88px] shrink-0" aria-hidden="true">
+                  <span class="absolute inset-[-14.09%_-6.31%]"><img src="assets/ic-chevron-down.svg" alt="" class="block size-full max-w-none" /></span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Utilities -->
+        <div class="r-utils flex items-center gap-[24px]">
+          <!-- Language + search (original LTR composition) -->
+          <div dir="ltr" class="inline-grid grid-cols-[max-content] grid-rows-[max-content] place-items-start leading-[0]">
+            <a href="#" lang="en" aria-label="English" class="col-start-1 row-start-1 ml-[49px] mt-0 inline-grid grid-cols-[max-content] grid-rows-[max-content] place-items-start">
+              <span class="col-start-1 row-start-1 ml-[24px] mt-0 h-[32px] w-[25px] text-[length:calc(20px*var(--ts))] font-medium leading-normal text-black">EN</span>
+              <img src="assets/ic-globe.svg" alt="" class="col-start-1 row-start-1 ml-0 mt-[7.72px] h-[20.966px] w-[19px] max-w-none" />
+            </a>
+            <button type="button" aria-label="بحث" class="col-start-1 row-start-1 ml-0 mt-[4.41px] size-[24px]">
+              <img src="assets/ic-search.svg" alt="" class="block size-full max-w-none" />
+            </button>
+          </div>
+
+          <!-- Accessibility settings -->
+          <button type="button" aria-haspopup="dialog" data-a11y-open class="flex shrink-0 items-center gap-[8px] whitespace-nowrap text-[length:calc(18px*var(--ts))] font-medium leading-[calc(24px*var(--ts))] text-black hover:text-primary">
+            <img src="assets/ic-eye.svg" alt="" class="block size-[24px] shrink-0" />
+            <span>إمكانية الوصول</span>
+          </button>
+
+          <!-- Login -->
+          <a href="login.html" {{LOGIN_CURRENT}}class="flex min-w-[183px] shrink-0 items-center justify-center gap-[10px] rounded-[12px] bg-primary px-[16px] py-[18px] backdrop-blur-[40px] transition-colors hover:bg-[#2c6f4c]">
+            <img src="assets/ic-login.svg" alt="" class="size-[24px] shrink-0" />
+            <span class="trim whitespace-nowrap text-center text-[length:calc(20px*var(--ts))] font-bold leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-white" style="font-feature-settings: 'case' 1">تسجيل الدخول</span>
+          </a>
+        </div>
+      </div>
+    </header>

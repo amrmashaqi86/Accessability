@@ -1,0 +1,17 @@
+  <!-- Colour-vision correction filters (daltonization), referenced from css/styles.css -->
+  <svg aria-hidden="true" focusable="false" width="0" height="0" style="position: absolute">
+    <filter id="cvd-protanopia" color-interpolation-filters="linearRGB">
+      <feColorMatrix type="matrix" values="1 0 0 0 0  -0.255 1.255 0 0 0  0.303 -0.545 1.242 0 0  0 0 0 1 0" />
+    </filter>
+    <filter id="cvd-deuteranopia" color-interpolation-filters="linearRGB">
+      <feColorMatrix type="matrix" values="1 0 0 0 0  -0.438 1.438 0 0 0  0.262 -0.563 1.3 0 0  0 0 0 1 0" />
+    </filter>
+    <filter id="cvd-tritanopia" color-interpolation-filters="linearRGB">
+      <feColorMatrix type="matrix" values="1.05 -0.382 0.332 0 0  0 1.234 -0.234 0 0  0 0 1 0 0  0 0 0 1 0" />
+    </filter>
+  </svg>
+
+  <script src="js/a11y.js"></script>
+  <script src="js/main.js"></script>
+{{EXTRA_JS}}</body>
+</html>

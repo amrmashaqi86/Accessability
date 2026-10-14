@@ -1,0 +1,135 @@
+    <main id="main" tabindex="-1" class="outline-none pb-[108px] pt-[66px]">
+      <!-- Figma "News Details 1941" — registration card (Rectangle 12024973, 1320 × 695) -->
+      <section aria-labelledby="register-title"
+               class="r-auth-card r-register mx-auto min-h-[695px] w-[1320px] rounded-[44px] bg-[rgba(255,255,255,0.6)] pb-[43px] pl-[116px] pr-[118px] pt-[47px] shadow-[0px_0px_15px_0px_rgba(0,0,0,0.19)]">
+        <form id="register-form" novalidate class="r-full flex w-[1086px] flex-col items-start">
+          <!-- Frame 2843735 -->
+          <div class="flex w-full flex-col items-start gap-[12px]">
+            <div class="flex w-full flex-col items-start gap-[48px]">
+              <h1 id="register-title" class="r-title trim w-full text-right text-[length:calc(48px*var(--ts))] font-bold leading-normal text-brand">إنشاء حساب جديد</h1>
+
+              <div class="flex w-full flex-col items-start gap-[32px]">
+                <!-- Row 1: ID · mobile · email -->
+                <div class="r-row flex w-full items-start gap-[18px]">
+                  <div class="r-col flex w-[350px] flex-col items-start gap-[12px]" data-field>
+                    <label for="reg-id" class="trim w-full text-right text-[length:calc(16px*var(--ts))] font-medium leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-secondary">رقم الهوية \ الإقامة</label>
+                    <div class="form-box relative flex h-[56px] w-full items-center rounded-[12px] border border-solid border-[#9ea0a0] bg-white px-[10px]">
+                      <input id="reg-id" name="nationalId" type="text" inputmode="numeric" autocomplete="off" maxlength="10" required
+                             placeholder="أدخل رقم الهوية \ الإقامة" aria-describedby="reg-id-error"
+                             class="form-input h-full w-full min-w-0 bg-transparent text-right text-[length:calc(16px*var(--ts))] text-secondary outline-none" />
+                    </div>
+                    <p id="reg-id-error" class="field-error" hidden></p>
+                  </div>
+
+                  <div class="r-col flex w-[350px] flex-col items-start gap-[12px]" data-field>
+                    <label for="reg-mobile" class="trim w-full text-right text-[length:calc(16px*var(--ts))] font-medium leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-secondary">رقم الجوال</label>
+                    <div class="form-box relative flex h-[56px] w-full items-center rounded-[12px] border border-solid border-[#9ea0a0] bg-white px-[10px]">
+                      <input id="reg-mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="10" required
+                             placeholder="صيغة الجوال : ⁦05XXXXXXXX⁩" aria-describedby="reg-mobile-error"
+                             class="form-input h-full w-full min-w-0 bg-transparent text-right text-[length:calc(16px*var(--ts))] text-secondary outline-none" />
+                    </div>
+                    <p id="reg-mobile-error" class="field-error" hidden></p>
+                  </div>
+
+                  <div class="r-col flex w-[350px] flex-col items-start gap-[12px]" data-field>
+                    <label for="reg-email" class="trim w-full text-right text-[length:calc(16px*var(--ts))] font-medium leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-secondary">البريد الالكتروني</label>
+                    <div class="form-box relative flex h-[56px] w-full items-center rounded-[12px] border border-solid border-[#9ea0a0] bg-white px-[10px]">
+                      <input id="reg-email" name="email" type="email" autocomplete="email" required dir="auto"
+                             placeholder="ادخل البريد الالكتروني" aria-describedby="reg-email-error"
+                             class="form-input h-full w-full min-w-0 bg-transparent text-right text-[length:calc(16px*var(--ts))] text-secondary outline-none" />
+                    </div>
+                    <p id="reg-email-error" class="field-error" hidden></p>
+                  </div>
+                </div>
+
+                <!-- Row 2: password · confirm -->
+                <div class="r-row flex w-full items-start gap-[16px]">
+                  <div class="r-col flex w-[535px] flex-col items-start gap-[12px]" data-field>
+                    <label for="reg-password" class="trim w-full text-right text-[length:calc(16px*var(--ts))] font-medium leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-secondary">كلمة المرور</label>
+                    <div class="form-box relative flex h-[56px] w-full items-center rounded-[12px] border border-solid border-[#9ea0a0] bg-white pl-[48px] pr-[10px]">
+                      <input id="reg-password" name="password" type="password" autocomplete="new-password" required
+                             placeholder="ادخل كلمة المرور" aria-describedby="password-rules reg-password-error"
+                             class="form-input h-full w-full min-w-0 bg-transparent text-right text-[length:calc(16px*var(--ts))] text-secondary outline-none" />
+                      <button type="button" class="absolute left-[15px] top-1/2 size-[24px] -translate-y-1/2" data-toggle-password="reg-password" aria-label="إظهار كلمة المرور" aria-pressed="false">
+                        <img src="assets/ic-eye-pw.svg" alt="" class="block size-full max-w-none" />
+                      </button>
+                    </div>
+                    <p id="reg-password-error" class="field-error" hidden></p>
+                  </div>
+
+                  <div class="r-col flex w-[535px] flex-col items-start gap-[12px]" data-field>
+                    <label for="reg-confirm" class="trim w-full text-right text-[length:calc(16px*var(--ts))] font-medium leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-secondary">إعادة كلمة المرور</label>
+                    <div class="form-box relative flex h-[56px] w-full items-center rounded-[12px] border border-solid border-[#9ea0a0] bg-white pl-[48px] pr-[10px]">
+                      <input id="reg-confirm" name="confirmPassword" type="password" autocomplete="new-password" required
+                             placeholder="أعد كتابة كلمة المرور" aria-describedby="reg-confirm-error"
+                             class="form-input h-full w-full min-w-0 bg-transparent text-right text-[length:calc(16px*var(--ts))] text-secondary outline-none" />
+                      <button type="button" class="absolute left-[15px] top-1/2 size-[24px] -translate-y-1/2" data-toggle-password="reg-confirm" aria-label="إظهار كلمة المرور" aria-pressed="false">
+                        <img src="assets/ic-eye-pw.svg" alt="" class="block size-full max-w-none" />
+                      </button>
+                    </div>
+                    <p id="reg-confirm-error" class="field-error" hidden></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Password rules (Frame 5:4357) -->
+            <div id="password-rules" class="r-rules flex w-full flex-col items-start gap-[16px] rounded-[16px] bg-[#f8f8f8] px-[36px] py-[16px]">
+              <p class="min-w-full text-right text-[length:calc(14px*var(--ts))] font-normal leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-[#308059]">يجب ان تتكون كلمة المرور من الآتي</p>
+              <ul class="r-rules-list flex items-center justify-end gap-[12px]">
+                <li class="flex items-center gap-[4px]" data-rule="length">
+                  <img src="assets/rule-fail.svg" alt="" class="size-[17px] shrink-0" data-rule-icon />
+                  <span class="trim whitespace-nowrap text-right text-[length:calc(12px*var(--ts))] font-normal leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-[#5b5b5b]">8 خانات على الاقل</span>
+                  <span class="sr-only" data-rule-state>، غير مستوفى</span>
+                </li>
+                <li class="flex items-center gap-[4px]" data-rule="digit">
+                  <img src="assets/rule-fail.svg" alt="" class="size-[17px] shrink-0" data-rule-icon />
+                  <span class="trim whitespace-nowrap text-center text-[length:calc(12px*var(--ts))] font-normal leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-[#5b5b5b]">رقم واحد على الاقل</span>
+                  <span class="sr-only" data-rule-state>، غير مستوفى</span>
+                </li>
+                <li class="flex items-center gap-[4px]" data-rule="lower">
+                  <img src="assets/rule-fail.svg" alt="" class="size-[17px] shrink-0" data-rule-icon />
+                  <span class="trim whitespace-nowrap text-center text-[length:calc(12px*var(--ts))] font-normal leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-[#5b5b5b]">حرف صغير على الأقل</span>
+                  <span class="sr-only" data-rule-state>، غير مستوفى</span>
+                </li>
+                <li class="flex items-center gap-[4px]" data-rule="upper">
+                  <img src="assets/rule-fail.svg" alt="" class="size-[17px] shrink-0" data-rule-icon />
+                  <span class="trim whitespace-nowrap text-center text-[length:calc(12px*var(--ts))] font-normal leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-[#5b5b5b]">حرف كبير على الأقل</span>
+                  <span class="sr-only" data-rule-state>، غير مستوفى</span>
+                </li>
+                <li class="flex items-center gap-[4px]" data-rule="symbol">
+                  <img src="assets/rule-fail.svg" alt="" class="size-[17px] shrink-0" data-rule-icon />
+                  <span class="trim whitespace-nowrap text-center text-[length:calc(12px*var(--ts))] font-normal leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-[#5b5b5b]">رمز واحد على الأقل</span>
+                  <span class="sr-only" data-rule-state>، غير مستوفى</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Consents -->
+          <div class="mt-[28px] flex w-full flex-col items-start gap-[34px]" data-field>
+            <label class="r-consent flex cursor-pointer items-center gap-[12px]">
+              <input id="reg-consent-updates" name="consentUpdates" type="checkbox" required class="peer sr-only" aria-describedby="reg-consents-error" />
+              <span class="form-check size-[23px] shrink-0" aria-hidden="true"></span>
+              <span class="r-wrap trim whitespace-nowrap text-right text-[length:calc(16px*var(--ts))] font-medium leading-normal text-[#5b5b5b]">أقر بسماحي لشركة نجم بتحديث جميع البيانات الخاصة بي واشعاري عن طريق الجوال. ذلك بأن أي تحديثات إضافية سيتم إرسالها لرقم الجوال المدرج .</span>
+            </label>
+            <label class="r-consent flex cursor-pointer items-center gap-[12px]">
+              <input id="reg-consent-privacy" name="consentPrivacy" type="checkbox" required class="peer sr-only" aria-describedby="reg-consents-error" />
+              <span class="form-check size-[23px] shrink-0" aria-hidden="true"></span>
+              <span class="r-wrap trim whitespace-nowrap text-right text-[length:calc(16px*var(--ts))] font-medium leading-normal text-[#5b5b5b]">أوافق على الشروط الواردة في <a href="#" class="text-[#35835b] underline decoration-solid">إشعار الخصوصية</a> وأدرك أنه إذا اخترت عدم تقديم موافقتي، فلن أتمكن من تلقي أو تقديم الخدمات كافة من/إلى نجم.</span>
+            </label>
+            <p id="reg-consents-error" class="field-error -mt-[22px]" hidden></p>
+          </div>
+
+          <!-- Submit (Frame 1597883763) -->
+          <div class="mt-[67px] flex w-full justify-center">
+            <button type="submit" class="r-submit flex w-[344px] items-center justify-center gap-[10px] rounded-[12px] bg-primary px-[16px] py-[18px] backdrop-blur-[40px] transition-colors hover:bg-[#2c6f4c]">
+              <span class="trim whitespace-nowrap text-center text-[length:calc(20px*var(--ts))] font-medium leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-white" style="font-feature-settings: 'case' 1">تسجيل</span>
+              <img src="assets/ic-arrow-square-left-white3.svg" alt="" class="size-[24px] shrink-0" />
+            </button>
+          </div>
+
+          <p class="form-status mx-auto mt-[16px]" role="status" aria-live="polite" hidden></p>
+        </form>
+      </section>
+    </main>

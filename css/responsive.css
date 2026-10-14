@@ -1,0 +1,559 @@
+/* =============================================================================
+   Responsive layout
+   ≥ 1280px  the Figma desktop frame (1920px canvas, scaled to the screen by js/main.js)
+   < 1280px  tablet / mobile: every section reflows (rules below override the desktop
+             utilities through the r-* hook classes; #canvas gives them the specificity).
+   ========================================================================== */
+
+/* Tablet / mobile-only elements are hidden on desktop. */
+.r-menu-toggle,
+.r-hero-media {
+  display: none;
+}
+
+@media (max-width: 1279.98px) {
+  .page-canvas {
+    width: auto;
+  }
+
+  /* ---- Header: logo + menu toggle; the menu opens as a panel under the bar ---- */
+  #canvas .r-header {
+    height: 72px;
+    justify-content: space-between;
+    gap: 12px;
+    padding-inline: 16px;
+  }
+  #canvas .r-logo {
+    align-self: flex-start;
+    zoom: 0.717;
+  }
+  #canvas .r-menu-toggle {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: #000;
+  }
+  #canvas .r-menu-toggle svg {
+    width: 28px;
+    height: 28px;
+  }
+  #canvas .r-menu-toggle .r-icon-close,
+  #canvas .r-header.is-open .r-menu-toggle .r-icon-open {
+    display: none;
+  }
+  #canvas .r-header.is-open .r-menu-toggle .r-icon-close {
+    display: block;
+  }
+  #canvas .r-menu {
+    position: absolute;
+    top: 100%;
+    inset-inline: 0;
+    z-index: 40;
+    display: none;
+    width: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    max-height: calc(100dvh - 72px);
+    overflow-y: auto;
+    padding: 16px 16px 24px;
+    background: #f2f3f2;
+    box-shadow: 0 16px 24px -12px rgb(0 0 0 / 0.25);
+  }
+  #canvas .r-header.is-open .r-menu {
+    display: flex;
+  }
+  #canvas .r-nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  #canvas .r-nav-list > li > a {
+    justify-content: space-between;
+    min-height: 52px;
+    border-bottom: 1px solid #dedede;
+    white-space: normal;
+  }
+  #canvas .r-utils {
+    flex-wrap: wrap;
+    gap: 16px 24px;
+  }
+  #canvas .r-utils > a:last-child {
+    flex: 1 1 100%;
+  }
+
+  /* ---- Hero: banner in the flow, then the slider / contact pills -------------- */
+  #canvas .r-hero-bg,
+  #canvas .r-hero-cta {
+    display: none;
+  }
+  #canvas .r-hero {
+    height: auto;
+    background: #253230;
+  }
+  #canvas .r-hero-media {
+    position: relative;
+    display: block;
+  }
+  #canvas .r-hero-media-cta {
+    position: absolute;
+    left: 28.5%;
+    top: 65.2%;
+    width: 23.3%;
+    height: 14.2%;
+    border-radius: 999px;
+  }
+  #canvas .r-hero-pills {
+    position: static;
+    width: auto;
+    height: auto;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px;
+  }
+  #canvas .r-contact-pill {
+    min-width: 0;
+    max-width: 100%;
+    border-radius: 24px;
+  }
+  #canvas .r-contact-list {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+
+  /* ---- E-services ------------------------------------------------------------- */
+  #canvas .r-eservices {
+    width: auto;
+    margin: 24px 16px 0;
+  }
+  #canvas .r-tabs {
+    position: static;
+    transform: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding: 12px;
+  }
+  #canvas .r-tabs > button {
+    flex: 0 1 auto;
+  }
+  #canvas .r-panel {
+    width: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 20px;
+  }
+  #canvas .r-info {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    border-left: 0;
+    padding-left: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #bfbfbf;
+  }
+  #canvas .r-info > [aria-hidden='true'] {
+    align-self: center;
+  }
+  #canvas .r-info-text {
+    width: auto;
+  }
+  #canvas .r-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  #canvas .r-cards > li > a {
+    height: 100%;
+    padding: 24px 12px 40px;
+  }
+  #canvas .r-cards img[src*='arrow-square'] {
+    top: auto;
+    bottom: 8px;
+    left: 8px;
+  }
+  #canvas .r-all-services {
+    position: static;
+    transform: none;
+    width: max-content;
+    margin: 16px auto 0;
+  }
+  #canvas .r-support {
+    position: fixed;
+    top: auto;
+    left: 16px;
+    bottom: 16px;
+    z-index: 60;
+    width: 56px;
+    height: 56px;
+  }
+
+  /* ---- Content column ----------------------------------------------------------- */
+  #canvas .r-content {
+    width: auto;
+    margin: 56px 16px 0;
+    gap: 72px;
+  }
+  #canvas :is(.r-content, .r-panel, .r-auth-card) .whitespace-nowrap {
+    white-space: normal;
+  }
+  #canvas .r-full {
+    width: 100%;
+  }
+  #canvas :is(.r-title, .r-title > span) {
+    font-size: calc(30px * var(--ts));
+  }
+  #canvas .r-content p.text-\[length\:calc\(20px\*var\(--ts\)\)\] {
+    font-size: calc(17px * var(--ts));
+  }
+
+  /* Insurance record */
+  #canvas .r-record {
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+  }
+  #canvas .r-record-text {
+    width: auto;
+  }
+  #canvas .r-record-illu {
+    align-self: center;
+  }
+
+  /* Tips */
+  #canvas .r-tips {
+    height: auto;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 24px;
+  }
+  #canvas .r-tips-scene {
+    align-self: center;
+    width: 220px;
+    height: auto;
+  }
+  #canvas .r-tips-content {
+    width: auto;
+  }
+  #canvas .r-tips-content > div:first-child {
+    padding: 0;
+  }
+  #canvas .r-tips-cards {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  #canvas .r-tip-card {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+  }
+
+  /* Events */
+  #canvas .r-events {
+    height: auto;
+    gap: 24px;
+  }
+  #canvas .r-ev-group {
+    position: static;
+    direction: rtl;
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    flex-direction: column;
+    gap: 16px;
+    line-height: normal;
+  }
+  #canvas .r-ev-bg {
+    display: none;
+  }
+  #canvas .r-ev-image {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 627 / 402;
+  }
+  #canvas .r-ev-article {
+    position: static;
+    padding: 24px 20px;
+    border-radius: 20px;
+    background: #f3f3f3;
+    box-shadow: 0 0 15px 0 rgb(0 0 0 / 0.15);
+  }
+  #canvas .r-ev-article > div,
+  #canvas .r-ev-article > div > div {
+    width: 100%;
+  }
+  #canvas .r-ev-titlebox {
+    height: auto;
+    gap: 12px;
+  }
+  #canvas :is(.r-ev-title, .r-ev-desc) {
+    width: 100%;
+    height: auto;
+  }
+  #canvas .r-ev-title {
+    font-size: calc(24px * var(--ts));
+    line-height: 1.45;
+  }
+  #canvas .r-ev-desc {
+    word-spacing: normal;
+  }
+  #canvas .r-ev-all {
+    position: static;
+    align-self: flex-start;
+  }
+  #canvas .r-ev-slider {
+    position: relative;
+    inset: auto;
+    align-self: flex-end;
+    margin-top: -69px;
+  }
+
+  /* App */
+  #canvas .r-app {
+    width: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+  }
+  #canvas .r-app-text-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  #canvas .r-app-text {
+    width: auto;
+  }
+  #canvas .r-app-title {
+    display: block;
+    line-height: normal;
+  }
+  #canvas .r-app-title,
+  #canvas .r-app-title > span {
+    font-size: calc(30px * var(--ts));
+  }
+  #canvas .r-app-title > span {
+    width: auto;
+    margin: 0;
+    text-box: normal;
+    line-height: 1.35;
+  }
+  #canvas .r-app-img {
+    align-self: center;
+    width: 100%;
+    max-width: 524px;
+    height: auto;
+  }
+
+  /* ---- Footer ------------------------------------------------------------------- */
+  #canvas .r-footer {
+    width: auto;
+  }
+  #canvas .r-footer-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+    padding: 72px 16px 40px;
+  }
+  #canvas .r-footer-about-text {
+    height: auto;
+  }
+  #canvas .r-footer-nav {
+    display: grid;
+    width: auto;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px 24px;
+  }
+  #canvas .r-footer-nav h2 {
+    white-space: normal;
+  }
+  #canvas .r-back-top {
+    left: 16px;
+    top: -32px;
+    width: 60px;
+    height: 60px;
+  }
+  #canvas .r-footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px 16px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* ---- Login & registration ------------------------------------------------------- */
+  #canvas main:has(.r-auth-card) {
+    padding-top: 40px;
+    padding-bottom: 72px;
+  }
+  #canvas .r-auth-card {
+    width: auto;
+    min-height: 0;
+    margin-inline: 16px;
+    padding: 36px 24px;
+    border-radius: 28px;
+  }
+  #canvas .r-login {
+    align-items: center;
+    gap: 32px;
+  }
+  #canvas .r-login-illu {
+    width: 46%;
+    max-width: 543px;
+    height: auto;
+  }
+  #canvas .r-auth-card [class*='gap-[48px]'] {
+    gap: 32px;
+  }
+  #canvas .r-auth-actions {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  #canvas .r-auth-btn {
+    flex: 1 1 180px;
+    width: auto;
+  }
+  #canvas .r-row {
+    flex-wrap: wrap;
+  }
+  #canvas .r-col {
+    flex: 1 1 260px;
+    width: auto;
+  }
+  #canvas .r-rules {
+    padding-inline: 20px;
+  }
+  #canvas .r-rules-list {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px 16px;
+  }
+  #canvas .r-consent {
+    align-items: flex-start;
+  }
+  #canvas .r-consent .r-wrap {
+    white-space: normal;
+    line-height: 1.6;
+  }
+  #canvas .r-submit {
+    width: 100%;
+    max-width: 344px;
+  }
+}
+
+/* ---- Tablet (768–1279) --------------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 1279.98px) {
+  #canvas :is(.r-app-title, .r-app-title > span) {
+    font-size: calc(38px * var(--ts));
+  }
+  #canvas .r-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  #canvas :is(.r-title, .r-title > span) {
+    font-size: calc(38px * var(--ts));
+  }
+  #canvas .r-content {
+    margin-inline: 32px;
+  }
+  #canvas .r-eservices {
+    margin-inline: 32px;
+  }
+  #canvas .r-auth-card {
+    margin-inline: 32px;
+    padding: 48px 40px;
+  }
+  #canvas .r-app-text-wrap {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  #canvas .r-cards {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  #canvas .r-record {
+    flex-direction: row;
+  }
+  #canvas .r-record-text {
+    flex: 1 1 0;
+  }
+  #canvas .r-tips {
+    flex-direction: row;
+  }
+  #canvas .r-tips-content {
+    flex: 1 1 0;
+  }
+}
+
+/* ---- Mobile (< 768) --------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  #canvas .r-tips-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #canvas .r-tip-card {
+    min-height: 250px;
+  }
+  #canvas .r-footer-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #canvas .r-login {
+    flex-direction: column;
+  }
+  #canvas .r-login-illu {
+    display: none;
+  }
+  #canvas .r-divider {
+    display: none;
+  }
+  #canvas .r-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #canvas .r-tabs > button {
+    padding-inline: 8px;
+  }
+  #canvas .r-tabs > button:last-child {
+    grid-column: span 2;
+  }
+  /* Room for the floating support button at the end of the page */
+  #canvas .r-footer-bottom {
+    padding-bottom: 88px;
+  }
+}
+@media (max-width: 479.98px) {
+  #canvas .r-footer-nav {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #canvas .r-utils > button[data-a11y-open] {
+    flex: 1 1 100%;
+  }
+}
+
+/* ---- Dark theme for the tablet / mobile-only surfaces ---------------------------- */
+@media (max-width: 1279.98px) {
+  html.dark #canvas .r-menu {
+    background: #0b100e;
+    box-shadow: 0 16px 24px -12px rgb(0 0 0 / 0.7);
+  }
+  html.dark #canvas .r-nav-list > li > a {
+    border-color: #2d3834;
+  }
+  html.dark #canvas .r-menu-toggle {
+    color: #fff;
+  }
+  html.dark #canvas .r-ev-article {
+    background: #19221f;
+  }
+}

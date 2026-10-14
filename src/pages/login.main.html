@@ -1,0 +1,58 @@
+    <main id="main" tabindex="-1" class="outline-none pb-[134px] pt-[107px]">
+      <!-- Figma "News Details 1962" — login card (Rectangle 12024973, 1320 × 608) -->
+      <section aria-labelledby="login-title"
+               class="r-auth-card r-login mx-auto flex min-h-[608px] w-[1320px] items-start justify-between rounded-[44px] bg-[rgba(255,255,255,0.6)] px-[112px] py-[101px] shadow-[0px_0px_15px_0px_rgba(0,0,0,0.19)]">
+
+        <!-- Form (Frame 2843728) -->
+        <form id="login-form" novalidate class="r-full mt-[3px] flex w-[423px] flex-col items-start gap-[48px]">
+          <div class="flex w-full flex-col items-start gap-[48px]">
+            <h1 id="login-title" class="r-title trim w-full text-right text-[length:calc(48px*var(--ts))] font-bold leading-normal text-brand">تسجيل الدخول</h1>
+
+            <div class="flex w-full flex-col items-start gap-[32px]">
+              <!-- National ID / Iqama -->
+              <div class="flex w-full flex-col items-start gap-[12px]" data-field>
+                <label for="login-id" class="trim w-full text-right text-[length:calc(16px*var(--ts))] font-medium leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-secondary">رقم الهوية \ الإقامة</label>
+                <div class="form-box relative flex h-[56px] w-full items-center rounded-[12px] border border-solid border-[#9ea0a0] bg-white px-[10px]">
+                  <input id="login-id" name="nationalId" type="text" inputmode="numeric" autocomplete="username" maxlength="10" required
+                         placeholder="أدخل رقم الهوية \ الإقامة" aria-describedby="login-id-error"
+                         class="form-input h-full w-full min-w-0 bg-transparent text-right text-[length:calc(16px*var(--ts))] text-secondary outline-none" />
+                </div>
+                <p id="login-id-error" class="field-error" hidden></p>
+              </div>
+
+              <!-- Password -->
+              <div class="r-full flex w-[421px] flex-col items-start gap-[12px]" data-field>
+                <label for="login-password" class="trim w-full text-right text-[length:calc(16px*var(--ts))] font-medium leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-secondary">كلمة المرور</label>
+                <div class="form-box relative flex h-[56px] w-full items-center rounded-[12px] border border-solid border-[#9ea0a0] bg-white pl-[48px] pr-[10px]">
+                  <input id="login-password" name="password" type="password" autocomplete="current-password" required
+                         placeholder="أدخل كلمة المرور" aria-describedby="login-password-error"
+                         class="form-input h-full w-full min-w-0 bg-transparent text-right text-[length:calc(16px*var(--ts))] text-secondary outline-none" />
+                  <button type="button" class="absolute left-[14px] top-1/2 size-[24px] -translate-y-1/2" data-toggle-password="login-password" aria-label="إظهار كلمة المرور" aria-pressed="false">
+                    <img src="assets/ic-eye-pw.svg" alt="" class="block size-full max-w-none" />
+                  </button>
+                </div>
+                <p id="login-password-error" class="field-error" hidden></p>
+                <a href="#" class="trim self-end text-[length:calc(16px*var(--ts))] font-normal leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-[rgba(85,85,89,0.6)] hover:text-primary hover:underline" style="font-feature-settings: 'case' 1">نسيت كلمة المرور</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions (Frame 2843727) -->
+          <div class="r-auth-actions flex w-full items-center gap-[24px]">
+            <button type="submit" class="r-auth-btn flex w-[199px] items-center justify-center gap-[10px] rounded-[12px] bg-primary px-[16px] py-[18px] backdrop-blur-[40px] transition-colors hover:bg-[#2c6f4c]">
+              <span class="trim whitespace-nowrap text-center text-[length:calc(20px*var(--ts))] font-medium leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-white" style="font-feature-settings: 'case' 1">تسجيل الدخول</span>
+              <img src="assets/ic-arrow-square-left-white3.svg" alt="" class="size-[24px] shrink-0" />
+            </button>
+            <a href="register.html" class="r-auth-btn flex w-[199px] items-center justify-center gap-[10px] rounded-[12px] border-2 border-solid border-secondary px-[16px] py-[16px] backdrop-blur-[40px] transition-colors hover:bg-[rgba(85,85,89,0.06)]">
+              <span class="trim whitespace-nowrap text-center text-[length:calc(20px*var(--ts))] font-medium leading-[calc(22px*var(--ts))] tracking-[-0.408px] text-secondary" style="font-feature-settings: 'case' 1">إنشاء حساب</span>
+              <img src="assets/ic-arrow-square-left-dark.svg" alt="" class="size-[24px] shrink-0" />
+            </a>
+          </div>
+
+          <p class="form-status" role="status" aria-live="polite" hidden></p>
+        </form>
+
+        <!-- Illustration (Group 2843020) -->
+        <img src="assets/login-illustration.svg" alt="" aria-hidden="true" class="r-login-illu h-[406px] w-[543.114px] shrink-0 max-w-none" />
+      </section>
+    </main>

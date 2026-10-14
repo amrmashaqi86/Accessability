@@ -1,0 +1,343 @@
+/* =============================================================================
+   Accessibility tool — ported from the Najm site (A11yService / A11yPanel /
+   ReaderBar / VoiceIndicator, src/styles.css). Classes / attributes on <html>
+   are set by js/a11y.js and by the inline boot script in index.html so there
+   is no flash on reload.
+   ========================================================================== */
+
+/* ---- Tokens: New Najm Design System (tool UI) + text scale ------------------- */
+:root {
+  /* Text size: every font-size/line-height is calc(Npx * var(--ts)) */
+  --ts: 1;
+  color-scheme: light;
+  /* Page green (Figma home page); the tool uses the design-system green (.a11y-ui). */
+  --c-primary: 53 131 91;
+
+  --color-primary-200: #004d35;
+  --color-primary-20: #d7e6de;
+  --color-primary-10: #ebf3ef;
+  --color-heading: #19221f;
+  --color-secondary-200: #45534e;
+  --color-secondary-100: #63736d;
+  --color-secondary-40: #aebbb6;
+  --color-secondary-10: #e8ecea;
+  --color-surface: #f7f9f8;
+  --color-line: #d3dad7;
+  --color-warning-250: #664709;
+  --color-warning-80: #f2be55;
+  --color-warning-10: #fff9ed;
+  --color-error-200: #a02323;
+  --color-error-10: #fff5f5;
+  --color-canvas: #ffffff;
+}
+.a11y-ui,
+#voice-hints {
+  --c-primary: 1 102 67;
+  font-family: 'Noto Kufi Arabic', 'Segoe UI', Tahoma, sans-serif;
+  color: var(--color-secondary-200);
+  -webkit-font-smoothing: antialiased;
+}
+/* Conditional blocks (Angular @if) are toggled with [hidden]; utilities like .flex must not override it. */
+.a11y-ui [hidden],
+.a11y-ui[hidden] {
+  display: none !important;
+}
+.a11y-ui :focus-visible {
+  outline: 2px solid #4266a4;
+  outline-offset: 2px;
+}
+html.dark .a11y-ui :focus-visible {
+  outline-color: #7e9fdc;
+}
+
+/* ---- Dark theme ------------------------------------------------------------ */
+html.dark {
+  color-scheme: dark;
+  --color-canvas: #0b100e;
+  --color-heading: #ffffff;
+  --color-secondary-200: #e8ecea;
+  --color-secondary-100: #aebbb6;
+  --color-surface: #19221f;
+  --color-line: #45534e;
+  --color-secondary-40: #63736d;
+  --color-secondary-10: #19221f;
+  --color-primary-10: #001c14;
+  --color-primary-20: #003827;
+  --color-warning-10: #1a1202;
+  --color-warning-80: #d29a2b;
+  --color-warning-250: #ffd88b;
+  --color-error-10: #300909;
+  --color-error-200: #f5adad;
+}
+/* Brand green as *text* uses the design system's dark brand text (green 300 / 200). */
+html.dark .a11y-ui :is(.text-primary, .hover\:text-primary:hover) {
+  color: #47ffbc;
+}
+html.dark .a11y-ui .text-primary-200 {
+  color: #85ffd2;
+}
+html.dark .a11y-ui img:is([src*='icon-'], [src*='modal-close']) {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* ---- High contrast (WCAG 1.4.6 AAA text contrast, stronger borders) ---------- */
+html.hc {
+  --color-heading: #000000;
+  --color-secondary-200: #000000;
+  --color-secondary-100: #1f1f1f;
+  --color-line: #6b6b6b;
+  --color-secondary-40: #4d4d4d;
+  --color-primary-200: #003827;
+  --color-warning-250: #4d3507;
+  --color-warning-80: #80570b;
+  --color-error-200: #7d1b1b;
+}
+html.dark.hc {
+  --color-canvas: #000000;
+  --color-heading: #ffffff;
+  --color-secondary-200: #ffffff;
+  --color-secondary-100: #f0f0f0;
+  --color-surface: #0b0f0d;
+  --color-line: #9aa5a0;
+  --color-secondary-40: #b3bcb7;
+  --color-warning-250: #ffe19a;
+  --color-error-200: #ffc9c5;
+}
+html.hc :where(img) {
+  filter: contrast(1.1);
+}
+
+/* ---- Colour-vision support (daltonization filters, defined in index.html) ---- */
+html[data-cvd='protanopia'] {
+  filter: url('#cvd-protanopia');
+}
+html[data-cvd='deuteranopia'] {
+  filter: url('#cvd-deuteranopia');
+}
+html[data-cvd='tritanopia'] {
+  filter: url('#cvd-tritanopia');
+}
+html[data-cvd='monochrome'] {
+  filter: grayscale(1);
+}
+
+/* ---- Text spacing (WCAG 1.4.12). No letter-spacing: it breaks Arabic joining. --- */
+html.text-spacing body :where(p, li, span, a, label, dd, dt, h1, h2, h3, h4, button) {
+  line-height: 1.8 !important;
+  word-spacing: 0.16em !important;
+}
+
+/* ---- Highlight links & buttons -------------------------------------------- */
+html.hl-links body :is(a[href], button:not([role='tab'])) {
+  text-decoration: underline 2px !important;
+  text-underline-offset: 4px;
+  outline: 2px dashed rgb(var(--c-primary));
+  outline-offset: 2px;
+}
+
+/* ---- Reduce motion (same as the OS preference) ----------------------------- */
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Windows High Contrast / forced colours: keep focus and controls visible */
+@media (forced-colors: active) {
+  :where(a, button, input, select):focus-visible {
+    outline: 3px solid CanvasText;
+  }
+}
+
+/* ---- Panel / sheet animations ------------------------------------------------ */
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+}
+@keyframes sheet-down {
+  to {
+    transform: translateY(100%);
+  }
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes panel-rise {
+  from {
+    translate: 0 10px;
+  }
+}
+.sheet-up {
+  animation: sheet-up 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.sheet-down {
+  animation: sheet-down 0.32s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+.fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+.fade-out {
+  animation: fade-out 0.32s ease-in forwards;
+}
+.panel-in {
+  animation: panel-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ---- Screen reader: the block currently being read aloud ------------------- */
+.tts-reading {
+  border-radius: 6px;
+  background-color: color-mix(in srgb, var(--color-warning-10) 85%, transparent);
+  outline: 2px solid var(--color-warning-80);
+  outline-offset: 4px;
+  transition: background-color 0.2s ease;
+}
+
+/* Space for the full-width voice-control bar docked at the bottom */
+html.voice-docked body {
+  padding-bottom: calc(68px + env(safe-area-inset-bottom));
+}
+
+/* Header utility buttons: icon with a small label underneath. */
+.util-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+.util-btn:hover {
+  color: rgb(var(--c-primary));
+}
+.util-label {
+  white-space: nowrap;
+  font-size: calc(10px * var(--ts));
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+/* ---- Voice control: numbered badges ("أظهر الأرقام") ------------------------- */
+#voice-hints {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+}
+.voice-hint {
+  position: absolute;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  border-radius: 9999px;
+  border: 2px solid #fff;
+  background: #001c14;
+  color: #fff;
+  font: 700 11px/20px 'Noto Kufi Arabic', sans-serif;
+  text-align: center;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.35);
+}
+
+/* =============================================================================
+   This page in the dark theme / high contrast. The Figma file only defines the
+   light page, so the page colours are mapped onto the design-system dark values
+   the Najm site uses.
+   ========================================================================== */
+html.dark,
+html.dark body,
+html.dark #canvas {
+  background-color: #0b100e;
+}
+html.dark #canvas header {
+  background-color: #0b100e;
+  box-shadow: inset 0 -1px 0 #19221f;
+}
+html.dark #canvas :is(.text-black, .text-\[\#1e1e1e\]) {
+  color: #ffffff;
+}
+html.dark #canvas :is(.text-ink, .text-secondary) {
+  color: #e8ecea;
+}
+html.dark #canvas .text-\[rgba\(85\2c 85\2c 89\2c 0\.8\)\] {
+  color: #aebbb6;
+}
+html.dark #canvas :is(.text-brand, .text-primary, .text-\[\#308059\]) {
+  color: #47ffbc;
+}
+html.dark #canvas :is(.bg-white, .bg-\[\#f3f3f3\]) {
+  background-color: #19221f;
+}
+html.dark #canvas .bg-\[rgba\(255\2c 255\2c 255\2c 0\.6\)\] {
+  background-color: rgb(25 34 31 / 0.85);
+}
+html.dark #canvas .bg-\[rgba\(255\2c 255\2c 255\2c 0\.27\)\] {
+  background-color: rgb(25 34 31 / 0.75);
+}
+html.dark #canvas :is(.border-\[\#e1e1e1\], .border-\[\#d2d2d2\], .border-\[\#bfbfbf\], .border-\[\#c0c0c0\]) {
+  border-color: #45534e;
+}
+html.dark #canvas footer .bg-secondary {
+  background-color: #19221f;
+}
+/* Monochrome UI icons and the light background shapes: invert lightness, keep hue.
+   Logos, photos, illustrations and the QR code are left untouched. */
+html.dark #canvas img:is([src*='ic-'], [src*='icon-'], [src*='es-car'], [src*='tab-'], [src*='ev-']) {
+  filter: invert(1) hue-rotate(180deg);
+}
+/* White icons on green buttons, the dark hero pills and the footer already read well. */
+html.dark #canvas :is(.bg-primary, footer) img,
+html.dark #canvas section[aria-label='الإعلان الرئيسي'] img {
+  filter: none;
+}
+/* Selected tab: white icon on green */
+html.dark #canvas [aria-selected='true'] img {
+  filter: brightness(0) invert(1);
+}
+html.dark #canvas img[src*='bg-pattern'] {
+  filter: invert(1) hue-rotate(180deg);
+  opacity: 0.35;
+}
+
+/* High contrast: darker body text and stronger borders on the page */
+html.hc #canvas :is(.text-ink, .text-secondary, .text-\[rgba\(85\2c 85\2c 89\2c 0\.8\)\], .text-\[\#1e1e1e\]) {
+  color: #000000;
+}
+html.hc #canvas :is(.text-brand, .text-\[\#308059\]) {
+  color: #1d5c3d;
+}
+html.hc #canvas :is(.border-\[\#e1e1e1\], .border-\[\#d2d2d2\], .border-\[\#bfbfbf\], .border-\[\#c0c0c0\]) {
+  border-color: #6b6b6b;
+}
+html.dark.hc,
+html.dark.hc body,
+html.dark.hc #canvas,
+html.dark.hc #canvas header {
+  background-color: #000000;
+}
+html.dark.hc #canvas :is(.text-ink, .text-secondary, .text-\[rgba\(85\2c 85\2c 89\2c 0\.8\)\], .text-\[\#1e1e1e\], .text-black) {
+  color: #ffffff;
+}
+html.dark.hc #canvas :is(.text-brand, .text-primary, .text-\[\#308059\]) {
+  color: #85ffd2;
+}
+html.dark.hc #canvas :is(.border-\[\#e1e1e1\], .border-\[\#d2d2d2\], .border-\[\#bfbfbf\], .border-\[\#c0c0c0\]) {
+  border-color: #9aa5a0;
+}
